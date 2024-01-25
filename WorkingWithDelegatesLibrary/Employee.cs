@@ -9,6 +9,12 @@ namespace WorkingWithDelegatesLibrary
     public delegate bool DelegateForLeaveApprovalProcess(int noOfDays);
 
     public delegate void EmpFullNameAndLength(string Fname, string Lname);
+
+    public delegate void ConvertFullNameToUpperCase(string Fname, string lname);
+
+
+    public delegate string ConvertToUpperCase(string Fname, string lname);  
+    
     public class Employee
     {
         public int Empid { get; set; }
