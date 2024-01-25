@@ -10,17 +10,28 @@ namespace DelegatesApp
     {
         //declaration of the event
         static event DelegateForLeaveApprovalProcess ApplyForLeave;
+        static event EmpFullNameAndLength ShowEmpNameDetails;
         static void Main(string[] args)
         {
            // UnicastDelegateDemo();
 
             Employee empobj=new Employee();
-            EmpFullNameAndLength delobj1 = new EmpFullNameAndLength(empobj.CreateFullName);
-            EmpFullNameAndLength delobj2 = new EmpFullNameAndLength(empobj.CalculateLengthOfName);
-            EmpFullNameAndLength delobjCombined=(EmpFullNameAndLength)MulticastDelegate.Combine(delobj1, delobj2);
+            //EmpFullNameAndLength delobj1 = new EmpFullNameAndLength(empobj.CreateFullName);
+            //EmpFullNameAndLength delobj2 = new EmpFullNameAndLength(empobj.CalculateLengthOfName);
+            //EmpFullNameAndLength delobjCombined = (EmpFullNameAndLength)MulticastDelegate.Combine(delobj1, delobj2);
+            EmpFullNameAndLength[] delarr = new EmpFullNameAndLength[] 
+            {
+                empobj.CreateFullName,empobj.CalculateLengthOfName,empobj.PrintAllDetails
+            };
+            EmpFullNameAndLength delobjCombined=(EmpFullNameAndLength)MulticastDelegate.Combine(delarr);
+
+
+            ShowEmpNameDetails += delobjCombined;
             
-            delobjCombined.Invoke("Amitabh ", "Bacchan");
-            Console.WriteLine(empobj.EmpName);
+           // delobjCombined.Invoke("Amitabh ", "Bacchan");
+           ShowEmpNameDetails("Amitabh ", "Bacchan");
+
+            //Console.WriteLine(empobj.EmpName);
 
             Console.Read();
         }

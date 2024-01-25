@@ -14,7 +14,7 @@ namespace WorkingWithDelegatesLibrary
         public int Empid { get; set; }
         public string EmpName { get; set; }
 
-       
+        int namelength = 0;
         public int TotalLeaves { get; set; }
 
 
@@ -22,11 +22,17 @@ namespace WorkingWithDelegatesLibrary
             EmpName= string.Concat(fname, lname);
             
         }
+        public void PrintAllDetails(string fname, string lname) 
+        {
+            Console.WriteLine(EmpName);
+            Console.WriteLine(namelength);
+        }
+
 
         public void CalculateLengthOfName(string fname, string lname)
         {
-          int namelength=string.Concat(fname, lname).Length;
-            Console.WriteLine(namelength);
+           namelength=string.Concat(fname, lname).Length;
+        
         }
 
             public bool LeaveApproval(int noOfDays)
