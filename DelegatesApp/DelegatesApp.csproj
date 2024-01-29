@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>DelegatesApp.AnonymousMethodDemo</StartupObject>
+    <StartupObject>DelegatesApp.WorkingWithEmpList</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -50,8 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnonymousMethodDemo.cs" />
+    <Compile Include="LambdaDemo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkingWithEmpList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
